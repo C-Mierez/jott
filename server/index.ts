@@ -1,16 +1,8 @@
-import { Hono } from "hono";
-import { logger } from "hono/logger";
-import { expensesRoutes } from "~/routes/expenses";
+import app from "./app";
 
-const server = new Hono();
-
-// Set up Hono's built-in request logger middleware
-server.use("*", logger());
-
-server.get("/test", (c) => {
-    return c.json({ message: "test" });
+Bun.serve({
+    // Set up the Bun server to use implementation we build using Hono
+    fetch: app.fetch,
 });
 
-server.route("api/expenses", expensesRoutes);
-
-export default server;
+console.log("Server started.");
