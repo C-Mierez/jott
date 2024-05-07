@@ -21,8 +21,7 @@
 
         // Paths
         "paths": {
-            "@/*": ["./server/*"],
-            "~/*": ["./src/*"]
+            "~/*": ["./server/*"]
         },
 
         // Some stricter flags (disabled by default)
