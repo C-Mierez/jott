@@ -43,6 +43,14 @@ export const expensesRoutes = new Hono()
         return c.json({
             expense: deleted,
         });
+    })
+
+    // Get the total amount of expenses
+    .get("/total", (c) => {
+        const total = fakeExpenses.reduce((e, c) => {
+            return e + c.amount;
+        }, 0);
+        return c.json({ total });
     });
 // TODO
 // put
