@@ -2,16 +2,97 @@
 @tailwind components;
 @tailwind utilities;
 
+/**
+* @license
+*
+* Font Family: Clash Display
+* Designed by: Indian Type Foundry
+* URL: https://www.fontshare.com/fonts/clash-display
+* © 2024 Indian Type Foundry
+*
+* Clash Display Extralight 
+* Clash Display Light 
+* Clash Display Regular 
+* Clash Display Medium 
+* Clash Display Semibold 
+* Clash Display Bold 
+* Clash Display Variable (Variable font)
+*
+*/
+@font-face {
+    font-family: "ClashDisplay-Extralight";
+    src: url("./fonts/ClashDisplay-Extralight.woff2") format("woff2"),
+        url("./fonts/ClashDisplay-Extralight.woff") format("woff"),
+        url("./fonts/ClashDisplay-Extralight.ttf") format("truetype");
+    font-weight: 200;
+    font-display: swap;
+    font-style: normal;
+}
+@font-face {
+    font-family: "ClashDisplay-Light";
+    src: url("./fonts/ClashDisplay-Light.woff2") format("woff2"), url("./fonts/ClashDisplay-Light.woff") format("woff"),
+        url("./fonts/ClashDisplay-Light.ttf") format("truetype");
+    font-weight: 300;
+    font-display: swap;
+    font-style: normal;
+}
+@font-face {
+    font-family: "ClashDisplay-Regular";
+    src: url("./fonts/ClashDisplay-Regular.woff2") format("woff2"),
+        url("./fonts/ClashDisplay-Regular.woff") format("woff"),
+        url("./fonts/ClashDisplay-Regular.ttf") format("truetype");
+    font-weight: 400;
+    font-display: swap;
+    font-style: normal;
+}
+@font-face {
+    font-family: "ClashDisplay-Medium";
+    src: url("./fonts/ClashDisplay-Medium.woff2") format("woff2"),
+        url("./fonts/ClashDisplay-Medium.woff") format("woff"),
+        url("./fonts/ClashDisplay-Medium.ttf") format("truetype");
+    font-weight: 500;
+    font-display: swap;
+    font-style: normal;
+}
+@font-face {
+    font-family: "ClashDisplay-Semibold";
+    src: url("./fonts/ClashDisplay-Semibold.woff2") format("woff2"),
+        url("./fonts/ClashDisplay-Semibold.woff") format("woff"),
+        url("./fonts/ClashDisplay-Semibold.ttf") format("truetype");
+    font-weight: 600;
+    font-display: swap;
+    font-style: normal;
+}
+@font-face {
+    font-family: "ClashDisplay-Bold";
+    src: url("./fonts/ClashDisplay-Bold.woff2") format("woff2"), url("./fonts/ClashDisplay-Bold.woff") format("woff"),
+        url("./fonts/ClashDisplay-Bold.ttf") format("truetype");
+    font-weight: 700;
+    font-display: swap;
+    font-style: normal;
+}
+@font-face {
+    font-family: "ClashDisplay-Variable";
+    src: url("./fonts/ClashDisplay-Variable.woff2") format("woff2"),
+        url("./fonts/ClashDisplay-Variable.woff") format("woff"),
+        url("./fonts/ClashDisplay-Variable.ttf") format("truetype");
+    font-weight: 200 700;
+    font-display: swap;
+    font-style: normal;
+}
+
 @layer base {
     :root {
-        --background: 0 0% 100%;
-        --foreground: 0 0% 3.9%;
+        /* #10100E */
+        --background: 60 7% 6%;
+        /* #FCFCEB */
+        --foreground: 60 74% 95%;
 
-        --card: 0 0% 100%;
-        --card-foreground: 0 0% 3.9%;
+        --card: var(--background);
+        --card-foreground: var(--foreground);
 
-        --popover: 0 0% 100%;
-        --popover-foreground: 0 0% 3.9%;
+        --popover: var(--background);
+        --popover-foreground: var(--foreground);
 
         --primary: 0 0% 9%;
         --primary-foreground: 0 0% 98%;
@@ -28,48 +109,22 @@
         --destructive: 0 84.2% 60.2%;
         --destructive-foreground: 0 0% 98%;
 
-        --border: 0 0% 89.8%;
+        --border: var(--foreground);
         --input: 0 0% 89.8%;
-        --ring: 0 0% 3.9%;
+        --ring: var(--foreground);
 
         --radius: 0.5rem;
 
-        font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+        --animation-curve: cubic-bezier(0.76, 0, 0.24, 1);
+
+        --font-display: ClashDisplay-Variable, system-ui, Avenir, Helvetica, Arial, sans-serif;
+
+        font-family: var(--font-display), Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
 
         font-synthesis: none;
         text-rendering: optimizeLegibility;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
-    }
-
-    .dark {
-        --background: 0 0% 3.9%;
-        --foreground: 0 0% 98%;
-
-        --card: 0 0% 3.9%;
-        --card-foreground: 0 0% 98%;
-
-        --popover: 0 0% 3.9%;
-        --popover-foreground: 0 0% 98%;
-
-        --primary: 0 0% 98%;
-        --primary-foreground: 0 0% 9%;
-
-        --secondary: 0 0% 14.9%;
-        --secondary-foreground: 0 0% 98%;
-
-        --muted: 0 0% 14.9%;
-        --muted-foreground: 0 0% 63.9%;
-
-        --accent: 0 0% 14.9%;
-        --accent-foreground: 0 0% 98%;
-
-        --destructive: 0 62.8% 30.6%;
-        --destructive-foreground: 0 0% 98%;
-
-        --border: 0 0% 14.9%;
-        --input: 0 0% 14.9%;
-        --ring: 0 0% 83.1%;
     }
 }
 
@@ -82,8 +137,35 @@
     }
 }
 
+@layer components {
+    .brutalHover {
+        --duration: 200ms;
+        --distance: 3px;
+        --distance-inv: calc(var(--distance) * -1);
+
+        box-shadow: 0 0 0 0 hsl(var(--foreground));
+        transition-property: translate, box-shadow;
+        transition-duration: var(--duration);
+        transition-timing-function: var(--animation-curve);
+    }
+
+    .brutalHover:hover {
+        translate: var(--distance-inv) var(--distance-inv);
+        box-shadow: var(--distance) var(--distance) 0 0 hsl(var(--foreground));
+    }
+
+    .brutalHover:active {
+        translate: 0 0;
+        box-shadow: 0 0 0 0 hsl(var(--foreground));
+    }
+}
+
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+}
+
+#root {
+    height: 100%;
 }
