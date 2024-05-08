@@ -3,6 +3,7 @@ import DoubleButton from "~/components/ui/double-button";
 import { ArrowTopRightIcon } from "@radix-ui/react-icons";
 
 import HomeLayout from "./layout";
+import TotalExpenses from "./_components/total-expenses";
 
 export default function HomePage() {
     return (
@@ -13,6 +14,7 @@ export default function HomePage() {
                     <p className="text-4xl font-light text-foreground/70">Get your money right</p>
                 </div>
                 <div className="flex flex-col gap-3 max-w-lg w-full">
+                    <TotalExpenses />
                     <h2 className="balance tracking-wider text-xl text-center font-light">
                         Enter your most recent expense
                     </h2>
