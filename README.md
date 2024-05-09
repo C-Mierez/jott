@@ -11,10 +11,13 @@ This project is an excuse for trying out a bunch of technologies I haven't had t
 - Drizzle ORM
 - Neon PG
 - ZOD
-- Tanstak Query
+- Tanstak Query ✨
 - Tanstak Router ✨
 - Tanstak Form
 - Tailwind 
+
+- Railway ✨
+  - Dockerfile ✨
 
 ## Experience building this app
 
@@ -38,6 +41,12 @@ To account for this, we need to set up our Vite app to forward any requests unde
 And lastly, the final preparation for production deployment is setting up out Bun server to be the one that serves the frontend.
 
 We know after building our Vite app, all files are stored in the `dist` directory. We can serve these as static files from our Bun server by setting up a catch-all route (`*`) that serves these static files appropriately (using Hono's `serveStatic` helper function) 
+
+
+### Hono RPC
+
+
+### Deployment on Railway
 
 
 ### Zod Schemas
