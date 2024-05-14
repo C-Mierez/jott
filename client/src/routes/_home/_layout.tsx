@@ -1,11 +1,15 @@
-interface HomeLayoutProps {
-    children: React.ReactNode;
-}
+import { createFileRoute, Outlet } from "@tanstack/react-router";
 
-export default function HomeLayout({ children }: HomeLayoutProps) {
+export const Route = createFileRoute("/_home/_layout")({
+    component: HomeLayout,
+});
+
+export default function HomeLayout() {
     return (
         <div className="h-[100svh] flex flex-col justify-between">
-            <main className="flex-1">{children}</main>
+            <main className="flex-1">
+                <Outlet />
+            </main>
             <Footer />
         </div>
     );
