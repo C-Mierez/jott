@@ -1,5 +1,6 @@
+import { getTotalExpenses } from "~/lib/queries";
+
 import { useQuery } from "@tanstack/react-query";
-import getTotalExpenses from "~/lib/queries";
 
 export default function TotalExpenses() {
     const { isPending, error, data } = useQuery({
