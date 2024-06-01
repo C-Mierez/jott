@@ -1,5 +1,4 @@
 import { createFileRoute, Link, Outlet } from "@tanstack/react-router";
-import { routeTree } from "~/routeTree.gen";
 
 export const Route = createFileRoute("/dashboard/_layout")({
     component: DashboardLayout,
